@@ -62,15 +62,18 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   };
 
   return (
-    <div className="md:w-1/2 lg:w-2/5">
-      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
-      <p className="text-lg mt-5 text-center mb-10">
-        Añade Pacientes y {""}
-        <span className="text-indigo-600 font-bold">Administrarlos</span>
-      </p>
+    <div className="md:w-1/2 lg:w-2/5 flex items-center flex-col">
+      <div className="bg-black bg-opacity-50 py-4 rounded-md mb-2 w-full">
+        <h2 className="font-black text-3xl text-center text-white">
+          Seguimiento Pacientes
+        </h2>
+        <p className="text-xl mt-2 text-center text-white font-bold">
+          Añade Pacientes o Editalos
+        </p>
+      </div>
       <form
         onSubmit={handleSubmit}
-        className="shadow-md rounded-lg py-10 px-5 bg-amber-100 mb-10"
+        className="shadow-md rounded-lg py-10 px-5 mb-10 bg-blue-200 mt-6"
       >
         {error && (
           <div className="bg-red-800 text-white text-center mb-3 rounded-md p-3 uppercase font-bold">
