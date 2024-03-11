@@ -7,11 +7,11 @@ const PatientList = ({ pacientes, setPaciente, eliminarPaciente }) => {
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll flex items-center flex-col ">
       {pacientes && pacientes.length ? (
         <>
-          <div className="bg-black bg-opacity-50 py-4 rounded-md w-2/3 mb-2">
-            <h2 className="font-black text-3xl text-center text-white">
+          <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md w-2/3 mb-5">
+            <h2 className="font-black text-3xl text-center text-black">
               Pacientes
             </h2>
-            <p className="text-xl mt-2 text-center text-white font-bold">
+            <p className="text-xl mt-2 text-center text-black font-bold">
               Adminitra tus pacientes y citas
             </p>
           </div>
@@ -25,11 +25,11 @@ const PatientList = ({ pacientes, setPaciente, eliminarPaciente }) => {
           ))}
         </>
       ) : (
-        <div className="bg-black bg-opacity-50 py-4 rounded-md w-2/3">
-          <h2 className="font-black text-3xl text-center text-white">
+        <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md w-2/3">
+          <h2 className="font-black text-3xl text-center text-black">
             No hay pacientes
           </h2>
-          <p className="text-xl mt-2 text-center text-white font-bold">
+          <p className="text-xl mt-2 text-center text-black font-bold">
             Comienza agregando pacientes y apareceran en este lugar
           </p>
         </div>

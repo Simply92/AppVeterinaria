@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <div>
-      <h1 className="font-black text-5xl text-center md:w-2/3 mx-auto text-indigo-600">
+    <div className="mx-auto bg-blue-300 bg-opacity-50 py-4 rounded-md w-4/5">
+      <h1 className="font-black text-5xl text-center">
         Seguimiento Pacientes Veterinaria
       </h1>
     </div>

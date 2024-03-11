@@ -2,23 +2,11 @@ import { useEffect, useState } from "react";
 import PatientList from "./components/PatientList";
 import Header from "./components/Header";
 import Form from "./components/Form";
-import Fondo from "./assets/descarga2.jpg";
+import Fondo from "./assets/descarga6.jpg";
 
 function App() {
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState({});
-
-  useEffect(() => {
-    const obtenerLS = () => {
-      const pacientesLS = JSON.parse(localStorage.getItem("pacientes")) ?? [];
-      setPacientes(pacientesLS);
-    };
-    obtenerLS();
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("pacientes", JSON.stringify(pacientes));
-  }, [pacientes]);
 
   const eliminarPaciente = (id) => {
     const pacientesActualizados = paciente.filter(
@@ -26,6 +14,22 @@ function App() {
     );
     setPacientes(pacientesActualizados);
   };
+
+  useEffect(() => {
+    const getLocalStorage = () => {
+      const patientsLocalStorage = JSON.parse(
+        localStorage.getItem("pacientes")
+      );
+      if (patientsLocalStorage && patientsLocalStorage.length > 0) {
+        setPacientes(patientsLocalStorage);
+      }
+    };
+    getLocalStorage();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("pacientes", JSON.stringify(pacientes));
+  }, [pacientes]);
 
   return (
     <div
@@ -36,8 +40,8 @@ function App() {
         <Header />
         <div className="mt-12 md:flex">
           <Form
-            setPacientes={setPacientes}
             pacientes={pacientes}
+            setPacientes={setPacientes}
             paciente={paciente}
             setPaciente={setPaciente}
           />

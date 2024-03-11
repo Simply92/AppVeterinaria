@@ -63,11 +63,11 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
   return (
     <div className="md:w-1/2 lg:w-2/5 flex items-center flex-col">
-      <div className="bg-black bg-opacity-50 py-4 rounded-md mb-2 w-full">
-        <h2 className="font-black text-3xl text-center text-white">
+      <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md mb-2 w-full">
+        <h2 className="font-black text-3xl text-center text-black">
           Seguimiento Pacientes
         </h2>
-        <p className="text-xl mt-2 text-center text-white font-bold">
+        <p className="text-xl mt-2 text-center text-black font-bold">
           Añade Pacientes o Editalos
         </p>
       </div>
