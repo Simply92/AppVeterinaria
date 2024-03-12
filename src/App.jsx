@@ -5,14 +5,12 @@ import Form from "./components/Form";
 import Fondo from "./assets/descarga6.jpg";
 
 function App() {
-  const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] = useState({});
+  const [patients, setPatients] = useState([]);
+  const [patient, setPatient] = useState({});
 
-  const eliminarPaciente = (id) => {
-    const pacientesActualizados = paciente.filter(
-      (paciente) => paciente.id !== id
-    );
-    setPacientes(pacientesActualizados);
+  const deletePatient = (id) => {
+    const updatePatients = patients.filter((patien) => patien.id !== id);
+    setPatients(updatePatients);
   };
 
   useEffect(() => {
@@ -21,15 +19,15 @@ function App() {
         localStorage.getItem("pacientes")
       );
       if (patientsLocalStorage && patientsLocalStorage.length > 0) {
-        setPacientes(patientsLocalStorage);
+        setPatients(patientsLocalStorage);
       }
     };
     getLocalStorage();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("pacientes", JSON.stringify(pacientes));
-  }, [pacientes]);
+    localStorage.setItem("pacientes", JSON.stringify(patients));
+  }, [patients]);
 
   return (
     <div
@@ -40,15 +38,15 @@ function App() {
         <Header />
         <div className="mt-12 md:flex">
           <Form
-            pacientes={pacientes}
-            setPacientes={setPacientes}
-            paciente={paciente}
-            setPaciente={setPaciente}
+            patients={patients}
+            setPatients={setPatients}
+            patient={patient}
+            setPatient={setPatient}
           />
           <PatientList
-            pacientes={pacientes}
-            setPaciente={setPaciente}
-            eliminarPaciente={eliminarPaciente}
+            patients={patients}
+            setPatient={setPatient}
+            deletePatient={deletePatient}
           />
         </div>
       </div>

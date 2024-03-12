@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import Patien from "./Patien";
+import PatientComp from "./PatientComp";
 
 // eslint-disable-next-line react/prop-types
-const PatientList = ({ pacientes, setPaciente, eliminarPaciente }) => {
+const PatientList = ({ patients, setPatient, deletePatient }) => {
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll flex items-center flex-col ">
-      {pacientes && pacientes.length ? (
+      {patients && patients.length ? (
         <>
           <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md w-2/3 mb-5">
             <h2 className="font-black text-3xl text-center text-black">
@@ -15,12 +15,12 @@ const PatientList = ({ pacientes, setPaciente, eliminarPaciente }) => {
               Adminitra tus pacientes y citas
             </p>
           </div>
-          {pacientes.map((paciente) => (
-            <Patien
-              key={paciente.id}
-              paciente={paciente}
-              setPaciente={setPaciente}
-              eliminarPaciente={eliminarPaciente}
+          {patients.map((patient) => (
+            <PatientComp
+              key={patient.id}
+              patient={patient}
+              setPatient={setPatient}
+              deletePatient={deletePatient}
             />
           ))}
         </>

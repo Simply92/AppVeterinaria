@@ -1,36 +1,46 @@
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line react/prop-types
+import Swal from "sweetalert2";
 
-const Patien = ({ paciente, setPaciente, eliminarPaciente }) => {
-  const { nombre, propietario, email, fecha, sintomas, id } = paciente;
+const PatienComp = ({ patient, setPatient, deletePatient }) => {
+  const { name, owner, email, date, symptoms, id } = patient;
+  console.log(typeof setPatient);
 
-  const handleEliminar = () => {
-    const respuesta = confirm("Deseas eliminar este paciente?");
-    if (respuesta) {
-      eliminarPaciente(id);
+  const handleDelete = async () => {
+    const res = await Swal.fire({
+      icon: "question",
+      title: "Eliminar paciente",
+      text: "¿Estas seguro que quieres eliminar este paciente?",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    });
+    if (res.isConfirmed) {
+      deletePatient(id);
     }
   };
   return (
     <div className="m-3 shadow-md px-5 py-10 rounded-xl bg-blue-200 md:w-1/2 lg:w-2/3">
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Nombre: {""}
-        <span className="normal-case font-bold">{nombre}</span>
+        nombre: {""}
+        <span className="normal-case font-bold">{name}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Propietario: {""}
-        <span className="font-bold normal-case">{propietario}</span>
+        propietario: {""}
+        <span className="font-bold normal-case">{owner}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
         Email: {""}
         <span className="font-bold normal-case">{email}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Fecha Alta: {""}
-        <span className="font-bold normal-case">{fecha}</span>
+        fecha Alta: {""}
+        <span className="font-bold normal-case">{date}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Sintomas: {""}
-        <span className="font-bold normal-case">{sintomas}</span>
+        sintomas: {""}
+        <span className="font-bold normal-case">{symptoms}</span>
       </p>
 
       <div className="flex justify-between mt-10">
@@ -38,7 +48,7 @@ const Patien = ({ paciente, setPaciente, eliminarPaciente }) => {
           type="button"
           className="py-2 px-10 bg-indigo-600 hover:bg-indigo-800 text-white font-bold 
           rounded-md uppercase"
-          onClick={() => setPaciente(paciente)}
+          onClick={() => setPatient(patient)}
         >
           Editar
         </button>
@@ -46,7 +56,7 @@ const Patien = ({ paciente, setPaciente, eliminarPaciente }) => {
           type="button"
           className="py-2 px-10 bg-red-600 hover:bg-red-800 text-white font-bold 
         rounded-md uppercase"
-          onClick={handleEliminar}
+          onClick={handleDelete}
         >
           Eliminar
         </button>
@@ -55,4 +65,4 @@ const Patien = ({ paciente, setPaciente, eliminarPaciente }) => {
   );
 };
 
-export default Patien;
+export default PatienComp;
