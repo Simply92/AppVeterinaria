@@ -2,8 +2,7 @@
 import Swal from "sweetalert2";
 
 const PatienComp = ({ patient, setPatient, deletePatient }) => {
-  const { name, owner, email, date, symptoms, id } = patient;
-  console.log(typeof setPatient);
+  const { name, owner, email, admiDate, disDate, symptoms, id } = patient;
 
   const handleDelete = async () => {
     const res = await Swal.fire({
@@ -35,8 +34,12 @@ const PatienComp = ({ patient, setPatient, deletePatient }) => {
         <span className="font-bold normal-case">{email}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        fecha Alta: {""}
-        <span className="font-bold normal-case">{date}</span>
+        fecha de ingreso: {""}
+        <span className="font-bold normal-case">{admiDate}</span>
+      </p>
+      <p className="font-bold mb-3 text-gray-700 uppercase">
+        fecha de alta: {""}
+        <span className="font-bold normal-case">{disDate}</span>
       </p>
       <p className="font-bold mb-3 text-gray-700 uppercase">
         sintomas: {""}

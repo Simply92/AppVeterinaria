@@ -6,7 +6,8 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
+  const [admiDate, setAdmiDate] = useState("");
+  const [disDate, setDisDate] = useState("");
   const [symptoms, setSymptoms] = useState("");
   const [error, setError] = useState(false);
 
@@ -15,7 +16,8 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
       setName(patient.name);
       setOwner(patient.owner);
       setEmail(patient.email);
-      setDate(patient.date);
+      setAdmiDate(patient.admiDate);
+      setDisDate(patient.disDate);
       setSymptoms(patient.symptoms);
     }
   }, [patient]);
@@ -29,7 +31,12 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if ([name, owner, email, date, symptoms].includes("")) {
+    if ([name, owner, email, admiDate, disDate, symptoms].includes("")) {
+      Swal.fire({
+        icon: "error",
+        title: "Faltan campos",
+        text: "Todos los campos son obligatorios",
+      });
       setError(true);
       return;
     }
@@ -39,7 +46,8 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
       name,
       owner,
       email,
-      date,
+      admiDate,
+      disDate,
       symptoms,
     };
 
@@ -79,7 +87,8 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
     setName("");
     setOwner("");
     setEmail("");
-    setDate("");
+    setAdmiDate("");
+    setDisDate("");
     setSymptoms("");
   };
 
@@ -155,14 +164,30 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
             htmlFor="date"
             className="block text-gray-700 uppercase font-bold"
           >
+            fecha de ingreso
+          </label>
+          <input
+            id="admiDate"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            type="date"
+            value={admiDate}
+            onChange={(e) => setAdmiDate(e.target.value)}
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="date"
+            className="block text-gray-700 uppercase font-bold"
+          >
             fecha de alta
           </label>
           <input
-            id="date"
+            id="disDate"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={disDate}
+            max={new Date().toISOString().split("T")[0]}
+            onChange={(e) => setDisDate(e.target.value)}
           />
         </div>
         <div className="mb-5">
