@@ -171,6 +171,7 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="date"
             value={admiDate}
+            max={new Date().toISOString().split("T")[0]}
             onChange={(e) => setAdmiDate(e.target.value)}
           />
         </div>
