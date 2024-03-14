@@ -95,10 +95,10 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
   return (
     <div className="md:w-1/2 lg:w-2/5 flex items-center flex-col">
       <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md mb-2 w-full">
-        <h2 className="font-black text-3xl text-center text-black">
+        <h2 className="font-black md:text-3xl sm:text-xl text-center text-black">
           Seguimiento pacientes
         </h2>
-        <p className="text-xl mt-2 text-center text-black font-bold">
+        <p className="md:text-xl mt-2 text-center text-black font-bold">
           Añade pacientes o Editalos
         </p>
       </div>
@@ -207,9 +207,11 @@ const Form = ({ patients, setPatients, patient, setPatient }) => {
             value={symptoms}
             onChange={(e) => setSymptoms(e.target.value)}
           />
+        </div>
+        <div className="sm:flex sm:justify-center">
           <input
             type="submit"
-            className="bg-indigo-600 w-full p-3 rounded-md text-white uppercase font-bold cursor-pointer hover:bg-indigo-800 transition-all"
+            className="bg-indigo-600 md:w-full sm:w-2/3 sm:items-center p-3 rounded-md text-white uppercase font-bold cursor-pointer hover:bg-indigo-800 transition-all"
             value={patient.id ? "Editar paciente" : "Agregar paciente"}
           />
         </div>

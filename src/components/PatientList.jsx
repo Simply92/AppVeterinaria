@@ -8,7 +8,7 @@ const PatientList = ({ patients, setPatient, deletePatient }) => {
       {patients && patients.length ? (
         <>
           <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md w-2/3 mb-5">
-            <h2 className="font-black text-3xl text-center text-black">
+            <h2 className="font-black md:text-3xl sm:text-xl text-center text-black">
               Pacientes
             </h2>
             <p className="text-xl mt-2 text-center text-black font-bold">
@@ -26,7 +26,7 @@ const PatientList = ({ patients, setPatient, deletePatient }) => {
         </>
       ) : (
         <div className="bg-blue-300 bg-opacity-50 py-4 rounded-md w-2/3">
-          <h2 className="font-black text-3xl text-center text-black">
+          <h2 className="font-black sm:text-xl md:text-3xl text-center text-black">
             No hay pacientes
           </h2>
           <p className="text-xl mt-2 text-center text-black font-bold">
